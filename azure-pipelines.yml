@@ -26,3 +26,11 @@ steps:
 
 - script: echo 'Publishing artifacts...'
   displayName: 'Step 4'
+
+- task: CopyFiles@2
+  displayName: 'Copy dependency file'
+  inputs:
+    SourceFolder: '$(Build.SourcesDirectory)'
+    Contents: 'dependency-file.txt'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+
