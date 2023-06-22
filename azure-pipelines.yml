@@ -1,0 +1,20 @@
+trigger:
+  branches:
+    include:
+      - main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- script: echo 'Starting the pipeline...'
+  displayName: 'Step 1'
+
+- script: echo 'Running build tasks...'
+  displayName: 'Step 2'
+
+- script: echo 'Running tests...'
+  displayName: 'Step 3'
+
+- script: echo 'Publishing artifacts...'
+  displayName: 'Step 4'
