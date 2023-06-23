@@ -1,36 +1,24 @@
-#test1238
-- task: Ant@1
-  inputs:
-    buildFile: 'build.xml'
-    options: 
-    publishJUnitResults: true
-    testResultsFiles: '**/TEST-*.xml'
-    javaHomeOption: 'JDKVersion'
 trigger:
   branches:
     include:
       - main
 
-pool:
-  vmImage: 'ubuntu-latest'
+jobs:
+  - job: EchoCommandsJob
+    displayName: Echo Commands
+    pool:
+      vmImage: 'ubuntu-latest'
 
-steps:
-- script: echo 'Starting the pipeline...'
-  displayName: 'Step 1'
+    steps:
+      - script: |
+          echo "This is an echo command"
+          echo "Hello, World!"
+        displayName: 'Echo Messages'
 
-- script: echo 'Running build tasks...'
-  displayName: 'Step 2'
-
-- script: echo 'Running tests...'
-  displayName: 'Step 3'
-
-- script: echo 'Publishing artifacts...'
-  displayName: 'Step 4'
-
-- task: CopyFiles@2
-  displayName: 'Copy dependency file'
-  inputs:
-    SourceFolder: '$(Build.SourcesDirectory)'
-    Contents: 'dependency-file.txt'
-    TargetFolder: '$(Build.ArtifactStagingDirectory)'
-
+      - script: |
+          echo "Executing a complex command"
+          echo "This command has multiple lines"
+          echo "Line 1"
+          echo "Line 2"
+          echo "Line 3"
+        displayName: 'Complex Command'
